@@ -24,7 +24,6 @@ const RegistrationForm = props =>{
     const changeConfirmPassword = e =>{
         setState({...state, confirmPassword: e.target.value});
     }
-
     return(
         <div className = "container">
             <form>
@@ -37,6 +36,13 @@ const RegistrationForm = props =>{
                         onChange = {changeFirstName}
                         value = {state.firstName}
                     />
+                    <div className="text-danger">
+                        <p>
+                            &nbsp;{(state.firstName.length<2) ?
+                                "First name must be at least 2 characters": ''}
+                        </p>
+                    </div>
+
                 </div>
                 <div className="form-row p-2">
                     <label className ="col-sm-2 col-form-label">Last Name</label>
@@ -46,6 +52,12 @@ const RegistrationForm = props =>{
                         onChange = {changeLastName}
                         value = {state.lastName}
                     />
+                    <div className="text-danger">
+                        <p>
+                            &nbsp;{(state.lastName.length<2) ?
+                                "Last name must be at least 2 characters": ''}
+                        </p>
+                    </div>
                 </div>
                 <div className="form-row p-2">
                     <label className ="col-sm-2 col-form-label">Email</label>
@@ -55,6 +67,12 @@ const RegistrationForm = props =>{
                         onChange = {changeEmail}
                         value = {state.email}
                     />
+                    <div className="text-danger">
+                        <p>
+                            &nbsp;{(state.email.length<5) ?
+                                "Email must be at least 5 characters": ''}
+                        </p>
+                    </div>
                 </div>
                 <div className="form-row p-2">
                     <label className ="col-sm-2 col-form-label">Password</label>
@@ -64,6 +82,12 @@ const RegistrationForm = props =>{
                         onChange = {changePassword}
                         value = {state.password}
                     />
+                    <div className="text-danger">
+                        <p>
+                            &nbsp;{(state.password.length<8) ?
+                                "Password must be at least 8 characters": ''}
+                        </p>
+                    </div>
                 </div>                
                 <div className="form-row p-2">
                     <label className ="col-sm-2 col-form-label">Confirm Password</label>
@@ -73,6 +97,18 @@ const RegistrationForm = props =>{
                         onChange = {changeConfirmPassword}
                         value = {state.confirmPassword}
                     />
+                    <div className="text-danger">
+                        <p>
+                            &nbsp;{(state.confirmPassword.length<8) ?
+                                "Password must be at least 8 characters": ''}
+                        </p>
+                    </div>
+                    <div className="text-danger">
+                        <p>
+                            &nbsp;{(state.confirmPassword != state.password) ?
+                                "Passwords must match": ''}
+                        </p>
+                    </div>                    
                 </div>                
 
                 
